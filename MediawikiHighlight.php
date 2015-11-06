@@ -23,8 +23,8 @@ global $wgHooks;
 $wgHooks['BeforePageDisplay'][]  = 'setupHeadersForHighlight';
  
 function setupHeadersForHighlight($out) {
-    $out->addScript('<link rel="stylesheet" type="text/css" href="${wgScriptPath}/extensions/MediawikiHighlight/styles/github.css'.'"></link>\n');
-    $out->addScript('<script type="text/javascript" src="${wgScriptPath}/extensions/MediawikiHighlight/highlight.pack.js"></script>\n');
+    $snippet = file_get_contents(dirname(__FILE__) . '/snippet.html', false);
+    $out->addScript(eval($snippet));
 }
 
 ?>
