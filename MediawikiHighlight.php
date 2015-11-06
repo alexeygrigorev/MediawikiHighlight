@@ -19,12 +19,20 @@ $wgExtensionCredits['parserhook'][] = array(
     'url'         => 'https://github.com/alexeygrigorev/MediawikiHighlight'
 );
 
-global $wgHooks;
-$wgHooks['BeforePageDisplay'][]  = 'setupHeadersForHighlight';
+// global $wgHooks;
+// $wgHooks['BeforePageDisplay'][]  = 'setupHeadersForHighlight';
  
-function setupHeadersForHighlight($out) {
-    $snippet = file_get_contents(dirname(__FILE__) . '/snippet.html', false);
-    $out->addScript(eval($snippet));
-}
+// function setupHeadersForHighlight($out) {
+//     $snippet = file_get_contents(dirname(__FILE__) . '/snippet.html', false);
+//     $out->addScript(eval($snippet));
+// }
+
+$wgResourceModules['ext.MediawikiHighlight'] = array(
+    'scripts' => 'highlight.pack.js',
+    'styles' => 'styles/github.css',
+    'position' => 'bottom',
+    'localBasePath' => __DIR__,
+    'remoteExtPath' => 'MediawikiHighlight',
+);
 
 ?>
