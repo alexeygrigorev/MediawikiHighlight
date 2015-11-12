@@ -2,6 +2,7 @@
 
 Syntax highlighter for MediaWiki with [highlight.js](https://highlightjs.org/)
 
+It automatically highlights all `<pre>` blocks (note that this is different from the default behavior of highlight.js, which is highlighlihg all `<pre><code>` blocks) 
 
 ## Installation
 
